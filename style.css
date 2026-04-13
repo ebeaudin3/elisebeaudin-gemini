@@ -1,0 +1,77 @@
+:root {
+    --sidebar-bg: #0a0e27; /* Le bleu marine profond */
+    --text-light: #ffffff;
+    --text-dark: #333333;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+    width: 300px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    height: 100vh;
+    position: fixed;
+    padding: 60px 40px;
+    box-sizing: border-box;
+}
+
+.sidebar h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.nav-links li { margin-bottom: 15px; }
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+/* L'effet de soulignement au hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* MAIN CONTENT AREA */
+.content {
+    margin-left: 300px; /* On laisse de la place pour la sidebar */
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-gif {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
