@@ -1,6 +1,4 @@
-/* ==========================================
-   1. RESET & BASE (Clean Slate)
-   ========================================== */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
@@ -11,9 +9,7 @@ body {
     height: 100vh;
 }
 
-/* ==========================================
-   2. FIXED SIDEBAR (Identical on all pages)
-   ========================================== */
+
 .sidebar {
     width: 300px;
     background-color: #0a0e27; /* Deep Navy */
@@ -75,7 +71,7 @@ body {
 .copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
 
 /* ==========================================
-   3. GLOBAL CONTENT FRAMEWORK 
+   GLOBAL CONTENT FRAMEWORK 
    ========================================== */
 .content {
     margin-left: 300px;         /* Steps aside for the sidebar */
@@ -84,7 +80,7 @@ body {
 }
 
 /* ==========================================
-   4. HOME PAGE (Full Bleed Image/GIF)
+   HOME PAGE (Full Bleed Image/GIF)
    ========================================== */
 .hero-gif {
     width: 100%;
@@ -95,7 +91,7 @@ body {
 }
 
 /* ==========================================
-   5. TEXT CONTENT LAYOUT (About Me, Research)
+   TEXT CONTENT LAYOUT (About Me, Research)
    ========================================== */
 .page-layout {
     padding: 60px;
@@ -141,7 +137,7 @@ body {
 }
 
 /* ==========================================
-   6. SIDE QUESTS PAGE (Grid Portfolio)
+   SIDE QUESTS PAGE (Grid Portfolio)
    ========================================== */
 .p-50 { padding: 50px; } /* Legacy padding class */
 
@@ -163,7 +159,7 @@ body {
 .quest-item h3 { font-family: 'Playfair Display', serif; margin-top: 15px; }
 
 /* ==========================================
-   7. MOBILE RESPONSIVENESS (The Adapter)
+   MOBILE RESPONSIVENESS (The Adapter)
    ========================================== */
 @media (max-width: 800px) {
     body { flex-direction: column; overflow-y: auto; }
