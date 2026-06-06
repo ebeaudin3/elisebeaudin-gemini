@@ -186,7 +186,7 @@ body {
 
 /* 2. THE MAGICAL FISH BULLET (The Child) */
 .citation::before {
-    content: "";          /* Tells the browser to render the pseudo-element */
+    content: "O";          /* Tells the browser to render the pseudo-element */
     position: absolute;   /* Places it precisely relative to the text anchor */
     left: 0;              /* Snaps it to the far left of the padding gap */
     top: 4px;             /* Aligns it vertically with the first line of text */
