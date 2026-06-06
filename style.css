@@ -184,16 +184,26 @@ citation {
 }
 
 /* The Fish Bullet Point */
+/*
 .citation::before {
-    content: "🐟";
+    content: "";
     position: absolute;
     left: 0;
-    top: 4px;            /* align */
-    width: 18px;         /* fish width */
-    height: 18px;        /* fish height */
+    top: 4px;            /* align */ /*
+    width: 18px;         /* fish width *//*
+    height: 18px;        /* fish height *//*
     background-image: url('images/fish-bullet.png');
     background-size: contain;
     background-repeat: no-repeat;
+}
+*/
+
+.citation::before {
+    content: "🐟";       /* Temporarily use an emoji */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.1rem;
 }
 
 /* ==========================================
