@@ -1,81 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Élise Beaudin</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+<main class="content page-layout">
+    
+    <h1 class="page-title">Research</h1>
+    
+    <p class="research-intro">
+        My research bridges the gap between physical oceanography and marine ecosystems. I combine atmospheric and Lagrangian modeling with field observations, community-led monitoring, and bioacoustics to understand ocean dynamics and climate impacts.
+    </p>
 
-    <nav class="sidebar" id="custom-sidebar"></nav>
-
-    <main class="content page-layout">
-        
-        <h1 class="page-title">Research</h1>
-        
-        <p class="research-intro">
-            My research bridges the gap between physical oceanography and marine ecosystems. I combine atmospheric and Lagrangian modeling with field observations, community-led monitoring, and bioacoustics to understand ocean dynamics and climate impacts.
-        </p>
-
-        <section class="research-theme">
+    <section class="research-item">
+        <div class="research-text">
             <h2>Underwater Acoustics & Whale Monitoring</h2>
             <div class="research-meta">Current Work | Ocean Networks Canada</div>
-            <p>
-                [Write a brief summary here about your current work with underwater acoustics at ONC. Explain how you process acoustic data to monitor marine mammals, detect whale presence, and analyze soundscapes in British Columbia's waters.]
-            </p>
-        </section>
+            <p>Description about your acoustics and whale monitoring work goes here...</p>
+        </div>
+        <div class="research-image">
+            <img src="images/acoustics.jpg" alt="Hydrophone deployment or whale monitoring">
+        </div>
+    </section>
 
-        <section class="research-theme">
+    <section class="research-item">
+        <div class="research-text">
             <h2>Coastal Monitoring & Indigenous Collaborations</h2>
-            <div class="research-meta">Community Oceanography & Fieldwork | Ocean Networks Canada</div>
-            <p>
-                [Write a brief summary here about your role in supporting community-led oceanography. Explain how you collaborate with Indigenous communities to deploy CTDs, manage coastal data streams, and build sustainable local monitoring networks.]
-            </p>
-        </section>
+            <div class="research-meta">Community Oceanography | Ocean Networks Canada</div>
+            <p>Description about community oceanography and CTD monitoring goes here...</p>
+        </div>
+        <div class="research-image">
+            <img src="images/ctd-field.jpg" alt="Coastal monitoring with CTD">
+        </div>
+    </section>
 
-        <section class="research-theme">
+    <section class="research-item">
+        <div class="research-text">
             <h2>Gulf of Alaska Transport Dynamics</h2>
-            <div class="research-meta">Lagrangian Modeling | PhD Candidate Research</div>
-            <p>
-                [Write a brief summary here about your Lagrangian modeling work. Explain how you track water masses to understand transport pathways in the Gulf of Alaska and their subsequent implications for regional marine ecosystems.]
-            </p>
-        </section>
+            <div class="research-meta">Lagrangian Modeling | PhD Research</div>
+            <p>Description about tracked water masses and Lagrangian pathways goes here...</p>
+        </div>
+        <div class="research-image">
+            <img src="images/alaska-model.jpg" alt="Lagrangian particle tracking model grid">
+        </div>
+    </section>
 
-        <section class="research-theme">
+    <section class="research-item">
+        <div class="research-text">
             <h2>Submesoscale Dynamics & Biophysical Interactions</h2>
             <div class="research-meta">Oceanographic Observations & Fieldwork</div>
-            <p>
-                [Write a brief summary here about your work on submesoscale eddies and eastern boundary currents. Highlight your sea-going experience and how you use observational data to map fine-scale biophysical interactions in the ocean.]
-            </p>
-        </section>
+            <p>Description about sea-going eddy observations and fine-scale data goes here...</p>
+        </div>
+        <div class="research-image">
+            <img src="images/submesoscale.jpg" alt="Oceanographic research vessel or eddy plot">
+        </div>
+    </section>
 
-        <section class="research-theme">
+    <section class="research-item">
+        <div class="research-text">
             <h2>Marine Heatwaves & Climate Extremes</h2>
-            <div class="research-meta">Atmospheric Modeling & Climate Data Analysis</div>
-            <p>
-                [Write a brief summary here about your GRL paper and MHW research. Explain how you use atmospheric modeling and sea surface temperature (SST) data to understand the impacts of Northeast Pacific marine heatwaves on regional weather and precipitation.]
-            </p>
-        </section>
+            <div class="research-meta">Atmospheric Modeling & Climate Data</div>
+            <p>Description about your GRL paper, atmospheric modeling, and SST anomalies goes here...</p>
+        </div>
+        <div class="research-image">
+            <img src="images/heatwaves.jpg" alt="Sea surface temperature anomaly map">
+        </div>
+    </section>
 
-    </main>
-
-    <script>
-        fetch('sidebar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('custom-sidebar').innerHTML = data;
-                
-                const currentPage = window.location.pathname.split("/").pop() || "index.html";
-                const links = document.querySelectorAll('.nav-links a');
-                links.forEach(link => {
-                    if (link.getAttribute('href') === currentPage) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-    </script>
-
-</body>
-</html>
+</main>
