@@ -199,11 +199,14 @@ citation {
 */
 
 .citation::before {
-    content: "🐟";       /* Temporarily use an emoji */
+    content: "";
     position: absolute;
     left: 0;
-    top: 2px;
-    font-size: 1.1rem;
+    top: 4px;            
+    width: 18px;         
+    height: 18px;        
+    background-color: #0a0e27; /* On met un carré bleu marine temporaire */
+    border-radius: 50%;        /* On en fait un petit rond */
 }
 
 /* ==========================================
