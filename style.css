@@ -177,22 +177,30 @@ body {
     font-size: 1.15rem;
     line-height: 1.6;
     color: #444444;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     font-style: italic;
 }
 
-.research-theme {
-    margin-bottom: 45px; /* Bel espace entre chaque projet */
+/* Flexbox aligns text on left, image on right */
+.research-item {
+    display: flex;
+    gap: 45px;            /* Nice gap between text and image */
+    align-items: center;  /* Centers them vertically relative to each other */
+    margin-bottom: 65px;  /* Clean breathing room between projects */
 }
 
-.research-theme h2 {
+.research-text {
+    flex: 1;              /* Takes up the maximum available space */
+}
+
+.research-theme h2, 
+.research-text h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
-    color: #0a0e27;      /* Utilise votre bleu marine signature pour les titres */
+    font-size: 1.65rem;
+    color: #0a0e27;
     margin-bottom: 6px;
 }
 
-/* Le petit sous-titre gris qui indique la méthode (Modélisation, CTD, etc.) */
 .research-meta {
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -200,6 +208,21 @@ body {
     color: #888888;
     font-weight: 600;
     margin-bottom: 14px;
+}
+
+/* THE IMAGE CONTAINER (Fixed proportions so it looks uniform) */
+.research-image {
+    width: 280px;         /* Uniform width for all research photos */
+    height: 180px;        /* Uniform height (creates a nice landscape block) */
+    flex-shrink: 0;       /* Stops the image from squeezing when resizing */
+    overflow: hidden;
+    border-radius: 4px;   /* Subtle, clean edge rounding */
+}
+
+.research-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* CRITICAL: Automatically crops any photo to fit the box without distortion */
 }
 
 /* ==========================================
