@@ -105,3 +105,107 @@ body {
     font-family: 'Playfair Display', serif;
     margin-top: 15px;
 }
+
+/* ABOUT PAGE */
+.page-layout {
+    background-color: #f4f4f6; /* Le gris très clair en arrière-plan */
+    overflow-y: auto !important; /* Permet le défilement vertical du texte */
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-card {
+    background-color: #ffffff; /* La grande carte blanche centrale */
+    width: 100%;
+    max-width: 850px;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    text-align: center;
+    color: #222;
+    margin-bottom: 50px;
+}
+
+/* BLOC BIOGRAPHIE (Flexbox pour aligner la photo et le texte) */
+.profile-block {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover; /* Garantit que la photo reste un cercle parfait */
+    flex-shrink: 0;
+}
+
+.bio-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.bio-text p { margin-bottom: 15px; }
+.greeting { font-size: 1.2rem; font-weight: 500; }
+
+/* SÉPARATEURS ÉLÉGANTS */
+.separator {
+    border: none;
+    border-top: 1px solid #e1e1e6;
+    margin: 40px 0;
+}
+
+/* SECTIONS DU CV */
+.resume-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.section-intro { margin-bottom: 20px; color: #555; line-height: 1.5; }
+.subtext { font-style: italic; color: #666; font-size: 0.95rem; }
+
+/* TABLEAUX PROPRES ET SANS BORDURES */
+.clean-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clean-table td {
+    border: none !important; /* Force la suppression des bordures héritées */
+    padding: 14px 0;
+    vertical-align: top;
+    line-height: 1.5;
+    color: #333;
+}
+
+.date-col {
+    width: 140px;
+    font-weight: 600;
+    color: #555;
+    padding-right: 20px !important;
+}
+
+.inline-rows td {
+    padding: 8px 0; /* Plus serré pour la liste des institutions */
+}
+
+/* LINKS IN TEXT */
+.about-card a {
+    color: #1a4cd2;
+    text-decoration: none;
+    font-weight: 500;
+}
+.about-card a:hover {
+    text-decoration: underline;
+}
