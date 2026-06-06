@@ -175,14 +175,27 @@ body {
    PUBLICATIONS PAGE
    ========================================== */
 
-citation {
-    position: relative;
-    padding-left: 32px;  /* Creates room for the fish on the left */
-    margin-bottom: 22px; /* Keeps that nice vertical breathing room we just added */
+.citation {
+    position: relative;   /* CRITICAL: This acts as an anchor so the bullet stays next to the text */
+    padding-left: 35px;   /* Pushes the text to the right to leave a perfect gap for the fish */
+    margin-bottom: 22px;  /* Keeps the nice vertical space between papers */
     line-height: 1.65;
     color: #333333;
+    display: block;       /* Forces each paper to behave like its own clean block */
 }
 
+/* 2. THE MAGICAL FISH BULLET (The Child) */
+.citation::before {
+    content: "";          /* Tells the browser to render the pseudo-element */
+    position: absolute;   /* Places it precisely relative to the text anchor */
+    left: 0;              /* Snaps it to the far left of the padding gap */
+    top: 4px;             /* Aligns it vertically with the first line of text */
+    width: 18px;          /* Width of the fish */
+    height: 18px;         /* Height of the fish */
+    background-image: url('fish-bullet.png'); /* Assumes fish-bullet.png is in your main folder */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 /* The Fish Bullet Point */
 /*
 .citation::before {
@@ -197,17 +210,6 @@ citation {
     background-repeat: no-repeat;
 }
 */
-
-.citation::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;            
-    width: 18px;         
-    height: 18px;        
-    background-color: #0a0e27; /* On met un carré bleu marine temporaire */
-    border-radius: 50%;        /* On en fait un petit rond */
-}
 
 /* ==========================================
    SIDE QUESTS PAGE (Grid Portfolio)
