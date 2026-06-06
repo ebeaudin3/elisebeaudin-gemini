@@ -212,11 +212,13 @@ body {
 
 /* THE IMAGE CONTAINER (Fixed proportions so it looks uniform) */
 .research-image {
-    width: 280px;         /* Uniform width for all research photos */
-    height: 180px;        /* Uniform height (creates a nice landscape block) */
-    flex-shrink: 0;       /* Stops the image from squeezing when resizing */
+    width: 380px;         /* Increased from 280px so plots are readable */
+    height: 250px;        /* Increased from 180px to maintain a great aspect ratio */
+    flex-shrink: 0;       
     overflow: hidden;
-    border-radius: 4px;   /* Subtle, clean edge rounding */
+    border-radius: 6px;   
+    border: 1px solid #f0f0f0; /* Adds a soft boundary for plots with white backgrounds */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Extremely subtle depth */
 }
 
 .research-image img {
