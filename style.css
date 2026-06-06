@@ -192,24 +192,10 @@ body {
     top: 4px;             /* Aligns it vertically with the first line of text */
     width: 18px;          /* Width of the fish */
     height: 18px;         /* Height of the fish */
-    background-image: url('fish-bullet.png'); /* Assumes fish-bullet.png is in your main folder */
+    background-image: url('images/fish-bullet.png'); 
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* The Fish Bullet Point */
-/*
-.citation::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;            /* align */ /*
-    width: 18px;         /* fish width *//*
-    height: 18px;        /* fish height *//*
-    background-image: url('images/fish-bullet.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-*/
 
 /* ==========================================
    SIDE QUESTS PAGE (Grid Portfolio)
