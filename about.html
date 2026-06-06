@@ -1,45 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Élise Beaudin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div class="sidebar-top">
-            <h1 class="site-title">ÉLISE <br> BEAUDIN</h1>
-            <p class="sidebar-bio">
-                Welcome! I am an oceanographer and a storyteller, currently a PhD Candidate at Brown University, in Providence, Rhode Island, USA.
-            </p>
-            
-            <nav class="nav-menu">
-                <a href="index.html">HOME</a>
-                <a href="about.html" class="active">ABOUT ME</a>
-                <a href="research.html">RESEARCH</a>
-                <a href="publications.html">PUBLICATIONS</a>
-                <a href="sidequests.html">SIDE QUESTS</a>
-            </nav>
-        </div>
+    <!-- La barre latérale par défaut se charge ici -->
+    <nav class="sidebar" id="custom-sidebar"></nav>
 
-        <div class="sidebar-bottom">
-            <div class="social-links">
-                <a href="mailto:elise_beaudin@brown.edu" title="Email"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/elise-beaudin/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-            <p class="copyright">Copyright © All rights reserved. 2026</p>
-        </div>
-    </aside>
-
-    <main class="main-content page-layout">
+    <!-- Zone de contenu avec le fond gris clair -->
+    <main class="content page-layout">
         <div class="about-card">
             
             <h1 class="page-title">About Me</h1>
             
+            <!-- Bloc Profil : Photo ronde et texte côte à côte -->
             <div class="profile-block">
                 <img src="img/me-hr.jpeg" class="profile-pic" alt="Élise Beaudin">
                 
@@ -50,12 +29,11 @@
                     
                     <hr class="separator">
                     
-                    <p class="connect-text">
-                        Feel free to connect with me via <a href="https://www.linkedin.com/in/elise-beaudin/" target="_blank">LinkedIn</a>, or contact me via <a href="mailto:elise_beaudin@brown.edu">email</a>.
-                    </p>
+                    <p>Feel free to connect with me via <a href="https://www.linkedin.com/in/elise-beaudin/" target="_blank">LinkedIn</a>, or contact me via <a href="mailto:elise_beaudin@brown.edu">email</a>.</p>
                 </div>
             </div>
 
+            <!-- Section Éducation -->
             <section class="resume-section">
                 <h2>Education</h2>
                 <table class="clean-table">
@@ -88,6 +66,7 @@
 
             <hr class="separator">
 
+            <!-- Section Institutions -->
             <section class="resume-section">
                 <h2>Institutions</h2>
                 <p class="section-intro">I spent the past years moving around for my studies, sometimes for internships, sometimes for an extended research project. Here is the list of the institutions I found myself working at:</p>
@@ -107,13 +86,31 @@
 
             <hr class="separator">
 
-            <section class="resume-section framework-challenge">
+            <!-- Section Challenge -->
+            <section class="resume-section">
                 <h3>Shenanigan Challenge</h3>
                 <p>Get your shenanigan challenge <a href="#">here</a>.</p>
             </section>
 
         </div>
     </main>
+
+    <!-- Le script qui va chercher sidebar.html et souligne "ABOUT ME" -->
+    <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('custom-sidebar').innerHTML = data;
+                
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const links = document.querySelectorAll('.nav-links a');
+                links.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+    </script>
 
 </body>
 </html>
