@@ -1,112 +1,3 @@
-:root {
-    --sidebar-bg: #0a0e27; /* Le bleu marine profond */
-    --text-light: #ffffff;
-    --text-dark: #333333;
-}
-
-body {
-    margin: 0;
-    display: flex;
-    font-family: 'Inter', sans-serif;
-}
-
-/* SIDEBAR STYLES */
-.sidebar {
-    width: 300px;
-    background-color: var(--sidebar-bg);
-    color: var(--text-light);
-    height: 100vh;
-    position: fixed;
-    padding: 60px 40px;
-    box-sizing: border-box;
-}
-
-.sidebar h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    line-height: 1.1;
-    margin-bottom: 30px;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin-top: 50px;
-}
-
-.nav-links li { margin-bottom: 15px; }
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    position: relative;
-    padding-bottom: 2px;
-}
-
-/* L'effet de soulignement au hover */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* MAIN CONTENT AREA */
-.content {
-    margin-left: 300px; /* On laisse de la place pour la sidebar */
-    width: 100%;
-    height: 100vh;
-}
-
-.hero-gif {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-/* SIDE QUESTS SECTION */
-.p-50 { padding: 50px; }
-
-.quests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.quest-item {
-    text-align: center;
-}
-
-.quest-item img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 4px;
-    transition: opacity 0.3s;
-}
-
-.quest-item img:hover {
-    opacity: 0.8;
-}
-
-.quest-item h3 {
-    font-family: 'Playfair Display', serif;
-    margin-top: 15px;
-}
-
-/* ABOUT PAGE */
 /* ==========================================
    1. RESET & BASE (Clean Slate)
    ========================================== */
@@ -114,12 +5,14 @@ body {
 
 body { 
     font-family: 'Inter', sans-serif; 
-    background-color: #ffffff; /* Entire page background is clean white */
+    background-color: #ffffff;
     color: #333333; 
+    display: flex;
+    height: 100vh;
 }
 
 /* ==========================================
-   2. FIXED SIDEBAR (Stays identical across pages)
+   2. FIXED SIDEBAR (Identical on all pages)
    ========================================== */
 .sidebar {
     width: 300px;
@@ -164,7 +57,7 @@ body {
     display: inline-block;
 }
 
-/* Underline effect */
+/* Underline effect on hover/active */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -182,26 +75,34 @@ body {
 .copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
 
 /* ==========================================
-   3. BULLETPROOF CONTENT AREA
+   3. GLOBAL CONTENT FRAMEWORK 
    ========================================== */
 .content {
-    margin-left: 300px; /* Perfectly steps aside to let the sidebar sit there */
-    padding: 60px;
-    max-width: 900px;   /* Stops text lines from being too long on large monitors */
-    width: 100%;
-}
-
-/* Home Page GIF specific sizing */
-.hero-gif {
-    width: 100%;
+    margin-left: 300px;         /* Steps aside for the sidebar */
+    width: calc(100% - 300px);  /* Fills the entire remaining screen width */
     height: 100vh;
-    background-size: cover;
-    background-position: center;
 }
 
 /* ==========================================
-   4. ABOUT ME PAGE ELEMENTS (Flat & Clean)
+   4. HOME PAGE (Full Bleed Image/GIF)
    ========================================== */
+.hero-gif {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================
+   5. TEXT CONTENT LAYOUT (About Me, Research)
+   ========================================== */
+.page-layout {
+    padding: 60px;
+    max-width: 900px;   /* Prevents long text lines on wide monitors */
+    overflow-y: auto;   /* Scrollbar appears ONLY when content is long */
+}
+
 .page-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.6rem;
@@ -220,29 +121,55 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; /* Stops the picture from squishing when screen shrinks */
+    flex-shrink: 0; 
 }
 
 .bio-text { font-size: 1rem; line-height: 1.6; color: #333333; }
 .bio-text p { margin-bottom: 15px; }
-
-/* Separators */
 .separator { border: none; border-top: 1px solid #eeeeee; margin: 35px 0; }
 
-/* Tables without borders */
+/* Tables */
 .clean-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 .clean-table td { border: none !important; padding: 10px 0; vertical-align: top; }
 .date-col { width: 130px; font-weight: 600; color: #555555; }
 .inline-rows td { padding: 6px 0; }
 
+/* Links in text */
+.page-layout a {
+    color: #0a0e27;
+    text-decoration: underline;
+}
+
 /* ==========================================
-   5. MOBILE FIX (The Emergency Brake)
+   6. SIDE QUESTS PAGE (Grid Portfolio)
+   ========================================== */
+.p-50 { padding: 50px; } /* Legacy padding class */
+
+.quests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.quest-item { text-align: center; }
+.quest-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: opacity 0.3s;
+}
+.quest-item img:hover { opacity: 0.8; }
+.quest-item h3 { font-family: 'Playfair Display', serif; margin-top: 15px; }
+
+/* ==========================================
+   7. MOBILE RESPONSIVENESS (The Adapter)
    ========================================== */
 @media (max-width: 800px) {
-    body { flex-direction: column; }
+    body { flex-direction: column; overflow-y: auto; }
     .sidebar { position: relative; width: 100%; height: auto; padding: 40px 30px; }
-    .content { margin-left: 0; padding: 30px; }
+    .content { margin-left: 0; width: 100%; height: auto; }
+    .page-layout { padding: 30px; }
     .profile-block { flex-direction: column; gap: 20px; }
-}
-    text-decoration: underline;
+    .hero-gif { height: 60vh; } /* Prevents the GIF from layout distortion on mobile */
 }
