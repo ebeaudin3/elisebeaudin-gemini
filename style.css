@@ -176,22 +176,22 @@ body {
    ========================================== */
 
 .citation {
-    position: relative;   /* CRITICAL: This acts as an anchor so the bullet stays next to the text */
-    padding-left: 35px;   /* Pushes the text to the right to leave a perfect gap for the fish */
-    margin-bottom: 22px;  /* Keeps the nice vertical space between papers */
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 22px;
     line-height: 1.65;
     color: #333333;
-    display: block;       /* Forces each paper to behave like its own clean block */
+    display: block; 
 }
 
 /* 2. THE MAGICAL FISH BULLET (The Child) */
 .citation::before {
-    content: "O";          /* Tells the browser to render the pseudo-element */
-    position: absolute;   /* Places it precisely relative to the text anchor */
-    left: 0;              /* Snaps it to the far left of the padding gap */
-    top: 4px;             /* Aligns it vertically with the first line of text */
-    width: 18px;          /* Width of the fish */
-    height: 18px;         /* Height of the fish */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 24px;
+    height: 18px;
     background-image: url('images/fish-bullet.png'); 
     background-size: contain;
     background-repeat: no-repeat;
