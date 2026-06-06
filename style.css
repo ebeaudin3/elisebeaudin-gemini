@@ -171,14 +171,6 @@ body {
 }
 
 
-.citation {
-    position: relative;
-    padding-left: 32px;  /* Creates room for the fish on the left */
-    margin-bottom: 22px; /* Keeps that nice vertical breathing room we just added */
-    line-height: 1.65;
-    color: #333333;
-}
-
 /* ==========================================
    PUBLICATIONS PAGE
    ========================================== */
@@ -199,7 +191,7 @@ citation {
     top: 4px;            /* Nudges the fish up/down to align perfectly with the text */
     width: 18px;         /* Sets the width of the fish */
     height: 18px;        /* Sets the height of the fish */
-    background-image: url('fish-bullet.png'); /* Assumes it's at the root. Use 'img/fish-bullet.png' if it's in your folder */
+    background-image: url('images/fish-bullet.png'); /* Assumes it's at the root. Use 'img/fish-bullet.png' if it's in your folder */
     background-size: contain;
     background-repeat: no-repeat;
 }
