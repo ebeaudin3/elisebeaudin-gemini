@@ -107,105 +107,142 @@ body {
 }
 
 /* ABOUT PAGE */
-.page-layout {
-    background-color: #f4f4f6; /* Le gris très clair en arrière-plan */
-    overflow-y: auto !important; /* Permet le défilement vertical du texte */
-    padding: 60px 40px;
+/* ==========================================
+   1. RESET & BASE (Clean Slate)
+   ========================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #ffffff; /* Entire page background is clean white */
+    color: #333333; 
+}
+
+/* ==========================================
+   2. FIXED SIDEBAR (Stays identical across pages)
+   ========================================== */
+.sidebar {
+    width: 300px;
+    background-color: #0a0e27; /* Deep Navy */
+    color: #ffffff;
+    height: 100vh;
+    padding: 50px 35px;
+    position: fixed;
+    left: 0;
+    top: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 100;
 }
 
-.about-card {
-    background-color: #ffffff; /* La grande carte blanche centrale */
-    width: 100%;
-    max-width: 850px;
+.sidebar h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+.bio {
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 25px;
+}
+
+.nav-links { list-style: none; margin-top: 35px; flex-grow: 1; }
+.nav-links li { margin-bottom: 16px; }
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 4px;
+    display: inline-block;
+}
+
+/* Underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+.social-icons { margin-bottom: 15px; }
+.social-icons a { color: #ffffff; text-decoration: none; font-size: 1.2rem; margin-right: 20px; }
+.copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
+
+/* ==========================================
+   3. BULLETPROOF CONTENT AREA
+   ========================================== */
+.content {
+    margin-left: 300px; /* Perfectly steps aside to let the sidebar sit there */
     padding: 60px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 900px;   /* Stops text lines from being too long on large monitors */
+    width: 100%;
 }
 
+/* Home Page GIF specific sizing */
+.hero-gif {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ==========================================
+   4. ABOUT ME PAGE ELEMENTS (Flat & Clean)
+   ========================================== */
 .page-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    text-align: center;
-    color: #222;
-    margin-bottom: 50px;
+    font-size: 2.6rem;
+    margin-bottom: 40px;
+    color: #111111;
 }
 
-/* BLOC BIOGRAPHIE (Flexbox pour aligner la photo et le texte) */
 .profile-block {
     display: flex;
     gap: 40px;
-    align-items: flex-start;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .profile-pic {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    object-fit: cover; /* Garantit que la photo reste un cercle parfait */
-    flex-shrink: 0;
+    object-fit: cover;
+    flex-shrink: 0; /* Stops the picture from squishing when screen shrinks */
 }
 
-.bio-text {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #444;
-}
-
+.bio-text { font-size: 1rem; line-height: 1.6; color: #333333; }
 .bio-text p { margin-bottom: 15px; }
-.greeting { font-size: 1.2rem; font-weight: 500; }
 
-/* SÉPARATEURS ÉLÉGANTS */
-.separator {
-    border: none;
-    border-top: 1px solid #e1e1e6;
-    margin: 40px 0;
+/* Separators */
+.separator { border: none; border-top: 1px solid #eeeeee; margin: 35px 0; }
+
+/* Tables without borders */
+.clean-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.clean-table td { border: none !important; padding: 10px 0; vertical-align: top; }
+.date-col { width: 130px; font-weight: 600; color: #555555; }
+.inline-rows td { padding: 6px 0; }
+
+/* ==========================================
+   5. MOBILE FIX (The Emergency Brake)
+   ========================================== */
+@media (max-width: 800px) {
+    body { flex-direction: column; }
+    .sidebar { position: relative; width: 100%; height: auto; padding: 40px 30px; }
+    .content { margin-left: 0; padding: 30px; }
+    .profile-block { flex-direction: column; gap: 20px; }
 }
-
-/* SECTIONS DU CV */
-.resume-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #222;
-}
-
-.section-intro { margin-bottom: 20px; color: #555; line-height: 1.5; }
-.subtext { font-style: italic; color: #666; font-size: 0.95rem; }
-
-/* TABLEAUX PROPRES ET SANS BORDURES */
-.clean-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.clean-table td {
-    border: none !important; /* Force la suppression des bordures héritées */
-    padding: 14px 0;
-    vertical-align: top;
-    line-height: 1.5;
-    color: #333;
-}
-
-.date-col {
-    width: 140px;
-    font-weight: 600;
-    color: #555;
-    padding-right: 20px !important;
-}
-
-.inline-rows td {
-    padding: 8px 0; /* Plus serré pour la liste des institutions */
-}
-
-/* LINKS IN TEXT */
-.about-card a {
-    color: #1a4cd2;
-    text-decoration: none;
-    font-weight: 500;
-}
-.about-card a:hover {
     text-decoration: underline;
 }
