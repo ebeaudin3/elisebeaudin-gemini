@@ -258,7 +258,7 @@ body {
 }
 
 .logo-grid img {
-    height: 60px;          /* Uniform height keeps the line look neat */
+    height: 80px;          /* logo sizes */
     width: auto;           /* Automatically scales the width proportionally */
     object-fit: contain;   /* Prevents distortion */
     
