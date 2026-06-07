@@ -394,6 +394,7 @@ body {
 
 @media (max-width: 1000px) {
     body { flex-direction: column; overflow-y: auto; }
+    body:has(.hero-gif), main:has(.hero-gif) {background-color: #050814 !important; padding: 0 !important;overflow: hidden; }
     .sidebar { position: relative; width: 100%; height: auto; padding: 40px 30px; }
     .sidebar {position: fixed !important; top: 0; left: -280px; width: 280px; height: 100vh; z-index: 9999; 
             transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
@@ -404,7 +405,7 @@ body {
     .page-layout { padding: 30px; }
     .profile-block { flex-direction: column; gap: 20px; }
     .profile-pic {width: 150px !important;  height: 150px !important;}
-    .hero-gif { height: 60vh; } /* Prevents the GIF from layout distortion on mobile */
+    .hero-gif { width: 100vw !important; height: 100vh !important; object-fit: cover !important; position: fixed; top: 0; left: 0;} /* Prevents the GIF from layout distortion on mobile */
     .logo-grid {justify-content: center; gap: 30px; }
     .logo-grid img { height: 35px; }
     .research-item { flex-direction: column; gap: 20px; } /* Stacks image under text on mobile */
