@@ -128,6 +128,12 @@ body {
     padding-bottom: 5px; /* Keeps it slightly elevated from the absolute edge */
 }
 
+.language-selector a.active-lang {
+    font-weight: 600;
+    color: #ffffff !important;
+    border-bottom: 1px solid #ffffff;
+}
+
 .copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
 
 /* ==========================================
