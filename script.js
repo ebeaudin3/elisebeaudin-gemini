@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. INJECTION DYNAMIQUE DE LA SIDEBAR RE-TRADUITE
     // ==========================================================
     sidebarContainer.innerHTML = `
-        <div class="language-selector" style="margin-bottom: 20px;>
+        <div class="language-selector" style="margin-bottom: 20px";>
             <a href="${urlEN}" class="${currentLang === 'en' ? 'active-lang' : ''}">EN</a> | 
             <a href="${urlFR}" class="${currentLang === 'fr' ? 'active-lang' : ''}">FR</a> | 
             <a href="${urlKO}" class="${currentLang === 'ko' ? 'active-lang' : ''}">한국어</a>
