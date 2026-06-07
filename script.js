@@ -34,21 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================================
     const translations = {
         en: {
-            bio: "Welcome! I am an oceanographer and a storyteller, currently a Data Specialist...",
+            bio: "Welcome! I am an oceanographer and a storyteller, currently a Data Specialist (Underwater Acoustics) at Ocean Networks Canada, in Victoria, BC, Canada.",
             home: "HOME",
             about: "ABOUT ME",
             research: "RESEARCH",
             publications: "PUBLICATIONS"
         },
         fr: {
-            bio: "Bienvenue ! Je suis océanographe et vulgarisatrice, actuellement spécialiste des données...",
+            bio: "Bienvenue ! Je suis océanographe physicienne et vulgarisatrice scientifique. J'occupe présentement le poste de Spécialiste en acoustique marine à Ocean Networks Canada, à Victoria, BC, Canada.",
             home: "ACCUEIL",
             about: "À PROPOS",
             research: "RECHERCHE",
             publications: "PUBLICATIONS"
         },
         ko: {
-            bio: "환영합니다! 저는 오션그래퍼이자 스토리텔러이며, 현재 데이터 전문가로...",
+            bio: "환영합니다! 저는 오션그래퍼이자 스토리텔러이며, 현재 캐나다 빅토리아에 위치한 오션 네트워크 캐나다에서 데이터 전문가(수중 음향학)로 활동하고 있습니다.",
             home: "홈",
             about: "소개",
             research: "연구",
@@ -88,4 +88,23 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="copyright">Copyright © Tous droits réservés. 2026</div>
     `;
+    
+    // Hamburger
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "mobile-nav-toggle";
+    toggleBtn.innerHTML = "☰"; // Initial hamburger icon
+    document.body.appendChild(toggleBtn);
+
+    // Event listener to open/close the mobile menu framework smoothly
+    toggleBtn.addEventListener("click", () => {
+        sidebarContainer.classList.toggle("mobile-open");
+        toggleBtn.classList.toggle("is-open");
+
+        // Switches the symbol between hamburger (☰) and close (✕)
+        if (toggleBtn.classList.contains("is-open")) {
+            toggleBtn.innerHTML = "✕";
+        } else {
+            toggleBtn.innerHTML = "☰";
+        }
+    });
 });
