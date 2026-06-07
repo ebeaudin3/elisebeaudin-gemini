@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="profile-container">
-            <img src="images/profile.png" alt="Élise Beaudin" class="profile-pic">
+            <img src="images/me.jpeg" alt="Élise Beaudin" class="profile-pic">
         </div>
 
         <h1>ÉLISE BEAUDIN</h1>
