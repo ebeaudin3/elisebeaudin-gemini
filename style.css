@@ -9,6 +9,9 @@ body {
     height: 100vh;
 }
 
+/* ==========================================
+   SIDEBAR
+   ========================================== */
 
 .sidebar {
     width: 300px;
@@ -66,8 +69,34 @@ body {
 }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-.social-icons { margin-bottom: 15px; }
-.social-icons a { color: #ffffff; text-decoration: none; font-size: 1.2rem; margin-right: 20px; }
+.social-icons {
+    display: flex;
+    gap: 20px;            /* Perfect spacing between the two icons */
+    margin-top: 25px;     /* Pushes them cleanly away from the language links above */
+    align-items: center;
+}
+
+.social-icons a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.social-icons img {
+    width: 20px;          /* Clean, subtle icon width */
+    height: 20px;         /* Clean, subtle icon height */
+    object-fit: contain;
+    
+    /* Slightly dim them by default so they match your elegant sidebar text layout */
+    opacity: 0.6;         
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Elegant light-up and lift effect when you hover over them */
+.social-icons a:hover img {
+    opacity: 1;
+    transform: translateY(-2px); /* Tiny, premium feeling 3D bounce */
+}
+
 .copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
 
 /* ==========================================
