@@ -27,6 +27,8 @@ body {
     justify-content: space-between;
     z-index: 100;
     box-sizing: border-box;
+    overflow-y: auto;                  /* Sprout a scrollbar ONLY if content overflows the screen */
+    -webkit-overflow-scrolling: touch; /* Keeps scrolling silky smooth on iOS devices */
 }
 
 .profile-container {
