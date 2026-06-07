@@ -395,7 +395,6 @@ body {
 @media (max-width: 1000px) {
     body { flex-direction: column; overflow-y: auto; }
     body:has(.hero-gif), main:has(.hero-gif) {background-color: #050814 !important; padding: 0 !important;overflow: hidden; }
-    .sidebar { position: relative; width: 100%; height: auto; padding: 40px 30px; }
     .sidebar {position: fixed !important; top: 0; left: -280px; width: 280px; height: 100vh; z-index: 9999; 
             transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
             overflow-y: auto; -webkit-overflow-scrolling: touch;}
@@ -465,7 +464,10 @@ body {
 
 /* Base desktop rule to keep the toggle button completely invisible on large monitors */
 @media (min-width: 1001px) {
-    .mobile-nav-toggle {
-        display: none !important;
-    }
+    .mobile-nav-toggle {display: none !important; }
+
+    /*  center page content for large screen */
+    .content {display: flex !important; flex-direction: column !important; align-items: center !important; padding: 60px 40px !important;}
+    .content > * {width: 100% !important; max-width: 850px !important;  box-sizing: border-box; }
+    .is-home-page .content > * {max-width: none !important; }
 }
