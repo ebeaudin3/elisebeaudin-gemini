@@ -15,22 +15,7 @@
         <div class="hero-gif" style="background-image: url('under.gif');"></div>
     </main>
 
-    <script>
-        fetch('sidebar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('custom-sidebar').innerHTML = data;
-                
-                // Souligne la page active (HOME) basé sur l'URL
-                const currentPage = window.location.pathname.split("/").pop() || "index.html";
-                const links = document.querySelectorAll('.nav-links a');
-                links.forEach(link => {
-                    if (link.getAttribute('href') === currentPage) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
