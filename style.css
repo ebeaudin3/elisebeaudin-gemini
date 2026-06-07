@@ -184,7 +184,7 @@ body {
 .separator { 
     border: none; 
     border-top: 1px solid #eeeeee; 
-    margin: 45px 0; 
+    margin: 35px 0; 
 }
 
 .page-layout h3 {
@@ -224,19 +224,12 @@ body {
 
 .bio-text { font-size: 1rem; line-height: 1.6; color: #333333; }
 .bio-text p { margin-bottom: 15px; }
-.separator { border: none; border-top: 1px solid #eeeeee; margin: 35px 0; }
 
 /* Tables */
 .clean-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
 .clean-table td { border: none !important; padding: 10px 0; vertical-align: top; }
 .date-col { width: 130px; font-weight: 600; color: #555555; }
 .inline-rows td { padding: 6px 0; }
-
-/* Links in text */
-.page-layout a {
-    color: #0a0e27;
-    text-decoration: underline;
-}
 
 /* ==========================================
    INSTITUTIONS LOGO GRID
