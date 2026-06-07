@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="social-icons">
             <a href="mailto:ebeaudin[@]oceannetworkscanada.ca"><img src="images/logos/mail.png" alt="Email"></a>
-            <a href="https://linkedin.com" target="_blank"><img src="images/logos/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.linkedin.com/in/elise-beaudin" target="_blank"><img src="images/logos/linkedin.png" alt="LinkedIn"></a>
         </div>
         <div class="copyright">Copyright © Tous droits réservés. 2026</div>
     `;
