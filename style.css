@@ -433,6 +433,8 @@ body {
     }
     .mobile-nav-toggle.is-open {left: 220px; background: transparent; box-shadow: none;}
 
+    body.is-home-page {display: flex !important; flex-direction: column !important; min-height: 100vh !important; background-color: #050814 !important; overflow-y: auto !important; }
+    
     .is-home-page .sidebar {
         position: relative !important;   /* Drops it into natural layout flow at the top */
         left: 0 !important;             /* Pulls it out of hiding */
