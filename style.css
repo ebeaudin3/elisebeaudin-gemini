@@ -446,7 +446,7 @@ body {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
     }
     .is-home-page .profile-container { margin-bottom: 12px !important; justify-content: center !important;  }
-    .is-home-page .profile-pic {width: 200px !important; height: 200px !important; border: 3px solid rgba(255, 255, 255, 0.2) !important; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);}
+    .is-home-page .profile-pic {width: 250px !important; height: 250px !important; border: 3px solid rgba(255, 255, 255, 0.2) !important; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);}
     .is-home-page .sidebar h1 {font-size: 1.6rem !important; margin-top: 15px !important; margin-bottom: 8px !important; text-align: center !important;}
     .is-home-page .sidebar h2 {font-size: 1.4rem !important; text-align: center !important; margin-bottom: 6px !important; letter-spacing: 1px !important; }
     .is-home-page .sidebar p {text-align: center !important; font-size: 0.88rem !important; max-width: 320px; margin: 0 auto 16px auto !important; opacity: 0.75; line-height: 1.5;}
