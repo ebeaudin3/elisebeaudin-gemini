@@ -469,5 +469,5 @@ body {
     /*  center page content for large screen */
     .content {display: flex !important; flex-direction: column !important; align-items: center !important; padding: 60px 40px !important;}
     .content > * {width: 100% !important; max-width: 850px !important;  box-sizing: border-box; }
-    .is-home-page .content > * {max-width: none !important; }
+    .is-home-page .content { padding: 0 !important; }
 }
