@@ -171,7 +171,61 @@ body {
 }
 
 /* ==========================================
-   AJOUTS POUR LA PAGE RESEARCH
+   INSTITUTIONS LOGO GRID
+   ========================================== */
+.institutions-section {
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.institutions-section h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888888;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Flex container that centers the logos and wraps them if they run out of space */
+.logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px; /* Even spacing between logos */
+}
+
+.logo-grid img {
+    height: 45px;          /* Uniform height keeps the line look neat */
+    width: auto;           /* Automatically scales the width proportionally */
+    object-fit: contain;   /* Prevents distortion */
+    
+    /* The chic portfolio trick: muted and grayscale by default */
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* Elegant color fade on hover */
+.logo-grid img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .logo-grid {
+        justify-content: center; /* Centers logos on phones */
+        gap: 30px;
+    }
+    .logo-grid img {
+        height: 35px; /* Slightly smaller on tiny screens */
+    }
+}
+
+/* ==========================================
+   PAGE RESEARCH
    ========================================== */
 .research-intro {
     font-size: 1.15rem;
