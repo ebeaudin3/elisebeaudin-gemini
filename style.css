@@ -28,6 +28,19 @@ body {
     z-index: 100;
 }
 
+.profile-container {
+    margin-bottom: 25px;   /* Generous space between your photo and your name */
+    display: block;
+}
+
+.profile-pic {
+    width: 110px;          /* Perfect, elegant size for the sidebar width */
+    height: 110px;         /* Must match the width for a perfect circle */
+    border-radius: 50%;    /* This creates the clean circular crop */
+    object-fit: cover;     /* CRITICAL: Prevents your face from stretching if the photo isn't a perfect square */
+    border: 2px solid rgba(255, 255, 255, 0.15); /* Adds a sophisticated, subtle frame against the navy background */
+}
+
 .sidebar h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.4rem;
