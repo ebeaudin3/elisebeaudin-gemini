@@ -1,55 +1,91 @@
-/* ==========================================================
-   DYNAMIC SIDEBAR & RESPONSIVE MOBILE NAVIGATION ENGINE
-   ========================================================== */
-fetch('sidebar.html')
-    .then(response => response.text())
-    .then(data => {
-        const sidebar = document.getElementById('custom-sidebar');
-        if (!sidebar) return; // Safety catch if the element isn't on the page
-        
-        sidebar.innerHTML = data;
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebarContainer = document.getElementById("custom-sidebar");
+    if (!sidebarContainer) return;
 
-        // 1. GESTION AUTOMATIQUE DES LIENS DE LANGUES (SMART ROUTING)
-        // Récupère le nom du fichier actuel (ex: "research-fr.html" ou "index.html")
-        let currentFile = window.location.pathname.split("/").pop() || "index.html";
-        
-        // Trouve la racine du fichier sans l'extension ni le suffixe de langue
-        let baseName = currentFile.replace(".html", "").replace("-fr", "").replace("-ko", "");
-        if (baseName === "") baseName = "index";
+    // ==========================================================
+    // 1. AUTOMATISATION DES LIENS DE LANGUE (Cache-Busting des suffixes)
+    // ==========================================================
+    const path = window.location.pathname;
+    let filename = path.substring(path.lastIndexOf('/') + 1);
+    
+    // Si l'URL se termine par un slash (ex: site.com/), on considère que c'est l'index
+    if (filename === "") filename = "index.html";
 
-        // Assigne dynamiquement les bons liens de redirection de page
-        const enLink = document.getElementById('lang-en');
-        const frLink = document.getElementById('lang-fr');
-        const koLink = document.getElementById('lang-ko');
+    // On isole le nom de la page (ex: "research-fr" -> "research-fr")
+    let baseName = filename.replace(".html", "");
+    let currentLang = "en"; // Langue par défaut
 
-        if (enLink) enLink.href = `${baseName}.html`;
-        if (frLink) frLink.href = `${baseName}-fr.html`;
-        if (koLink) koLink.href = `${baseName}-ko.html`; // Pour plus tard si besoin
+    // On détecte la langue actuelle et on extrait la racine propre de la page
+    if (baseName.endsWith("-fr")) {
+        currentLang = "fr";
+        baseName = baseName.slice(0, -3); // Enlève "-fr"
+    } else if (baseName.endsWith("-ko")) {
+        currentLang = "ko";
+        baseName = baseName.slice(0, -3); // Enlève "-ko"
+    }
 
-        // Ajoute la classe 'active' sur la langue en cours d'utilisation
-        if (currentFile.includes('-fr') && frLink) frLink.classList.add('active-lang');
-        else if (currentFile.includes('-ko') && koLink) koLink.classList.add('active-lang');
-        else if (enLink) enLink.classList.add('active-lang');
-       
-        // 1. Automatically create the mobile toggle button
-        const toggleBtn = document.createElement('button');
-        toggleBtn.className = 'mobile-nav-toggle';
-        toggleBtn.innerHTML = '☰';
-        document.body.appendChild(toggleBtn);
-        
-        // 2. Handle slide-out menu animations on click
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('mobile-open');
-            toggleBtn.classList.toggle('is-open');
-            toggleBtn.innerHTML = sidebar.classList.contains('mobile-open') ? '✕' : '☰';
-        });
-        
-        // 3. Automatically highlight the correct active page link
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        const links = document.querySelectorAll('.nav-links a');
-        links.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
-        });
-    });
+    // On génère dynamiquement les bons liens pour la page courante
+    const urlEN = `${baseName}.html`;
+    const urlFR = `${baseName}-fr.html`;
+    const urlKO = `${baseName}-ko.html`;
+
+    // ==========================================================
+    // 2. DICTIONNAIRE DE TRADUCTION DE LA SIDEBAR
+    // ==========================================================
+    const translations = {
+        en: {
+            bio: "Welcome! I am an oceanographer and a storyteller, currently a Data Specialist...",
+            home: "HOME",
+            about: "ABOUT ME",
+            research: "RESEARCH",
+            publications: "PUBLICATIONS"
+        },
+        fr: {
+            bio: "Bienvenue ! Je suis océanographe et vulgarisatrice, actuellement spécialiste des données...",
+            home: "ACCUEIL",
+            about: "À PROPOS",
+            research: "RECHERCHE",
+            publications: "PUBLICATIONS"
+        },
+        ko: {
+            bio: "환영합니다! 저는 오션그래퍼이자 스토리텔러이며, 현재 데이터 전문가로...",
+            home: "홈",
+            about: "소개",
+            research: "연구",
+            publications: "논문 및 저서"
+        }
+    };
+
+    const t = translations[currentLang];
+
+    // ==========================================================
+    // 3. INJECTION DYNAMIQUE DE LA SIDEBAR RE-TRADUITE
+    // ==========================================================
+    sidebarContainer.innerHTML = `
+        <!-- Sélecteur de langue avec les href automatisés -->
+        <div class="language-selector">
+            <a href="${urlEN}" class="${currentLang === 'en' ? 'active-lang' : ''}">EN</a> | 
+            <a href="${urlFR}" class="${currentLang === 'fr' ? 'active-lang' : ''}">FR</a> | 
+            <a href="${urlKO}" class="${currentLang === 'ko' ? 'active-lang' : ''}">한국어</a>
+        </div>
+
+        <div class="profile-container">
+            <img src="images/profile.png" alt="Élise Beaudin" class="profile-pic">
+        </div>
+
+        <h1>ÉLISE BEAUDIN</h1>
+        <p class="bio">${t.bio}</p>
+
+        <ul class="nav-links">
+            <li><a href="${baseName === 'index' ? '#' : urlEN}" class="${baseName === 'index' ? 'active' : ''}">${t.home}</a></li>
+            <li><a href="about${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'about' ? 'active' : ''}">${t.about}</a></li>
+            <li><a href="research${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'research' ? 'active' : ''}">${t.research}</a></li>
+            <li><a href="publications${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'publications' ? 'active' : ''}">${t.publications}</a></li>
+        </ul>
+
+        <div class="social-icons">
+            <!-- Vos icônes de réseaux sociaux ici -->
+        </div>
+        <div class="copyright">Copyright © Tous droits réservés. 2026</div>
+    `;
+});
