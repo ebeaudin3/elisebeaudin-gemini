@@ -439,6 +439,7 @@ body {
         width: 100% !important;          /* Spans edge-to-edge on the phone */
         height: auto !important;         /* Packs tightly around the content */
         display: flex !important;
+        overflow: visible !important;
         flex-direction: column !important;
         align-items: center !important;
         padding: 30px 20px 20px 20px !important;
@@ -457,7 +458,7 @@ body {
     .is-home-page .copyright-text,
     .is-home-page .mobile-nav-toggle {display: none !important;}
     .is-home-page .content.page-layout { margin-left: 0 !important; padding: 0 !important; width: 100% !important;}
-    .is-home-page .hero-gif {width: 100% !important; height: calc(100vh - 355px) !important;  min-height: 250px; display: block !important; object-fit: cover !important; position: relative !important; top: 0;left: 0; }
+    .is-home-page .hero-gif {width: 100% !important; height: auto !important;  flex-grow: 1 !important; min-height: 250px; display: block !important; object-fit: cover !important; position: relative !important; top: 0; left: 0; }
 } /* @media (max-width: 1000px) */
 
 /* Base desktop rule to keep the toggle button completely invisible on large monitors */
