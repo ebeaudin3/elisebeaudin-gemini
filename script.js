@@ -3,28 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!sidebarContainer) return;
 
     // ==========================================================
-    // 1. AUTOMATISATION DES LIENS DE LANGUE (Cache-Busting des suffixes)
+    // 1. AUTOMATISATION DES LIENS DE LANGUE
     // ==========================================================
     const path = window.location.pathname;
     let filename = path.substring(path.lastIndexOf('/') + 1);
     
-    // Si l'URL se termine par un slash (ex: site.com/), on considère que c'est l'index
     if (filename === "") filename = "index.html";
 
-    // On isole le nom de la page (ex: "research-fr" -> "research-fr")
     let baseName = filename.replace(".html", "");
-    let currentLang = "en"; // Langue par défaut
+    let currentLang = "en"; 
 
-    // On détecte la langue actuelle et on extrait la racine propre de la page
     if (baseName.endsWith("-fr")) {
         currentLang = "fr";
-        baseName = baseName.slice(0, -3); // Enlève "-fr"
+        baseName = baseName.slice(0, -3); 
     } else if (baseName.endsWith("-ko")) {
         currentLang = "ko";
-        baseName = baseName.slice(0, -3); // Enlève "-ko"
+        baseName = baseName.slice(0, -3); 
     }
 
-    // On génère dynamiquement les bons liens pour la page courante
     const urlEN = `${baseName}.html`;
     const urlFR = `${baseName}-fr.html`;
     const urlKO = `${baseName}-ko.html`;
@@ -62,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. INJECTION DYNAMIQUE DE LA SIDEBAR RE-TRADUITE
     // ==========================================================
     sidebarContainer.innerHTML = `
-        <!-- Sélecteur de langue avec les href automatisés -->
         <div class="language-selector">
             <a href="${urlEN}" class="${currentLang === 'en' ? 'active-lang' : ''}">EN</a> | 
             <a href="${urlFR}" class="${currentLang === 'fr' ? 'active-lang' : ''}">FR</a> | 
@@ -84,47 +79,48 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
 
         <div class="social-icons">
-            <!-- Vos icônes de réseaux sociaux ici -->
+            <a href="mailto:ebeaudin[@]oceannetworkscanada.ca"><img src="images/email-icon.png" alt="Email"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
         </div>
         <div class="copyright">Copyright © Tous droits réservés. 2026</div>
     `;
 
-    // Check if the French page version exists on the server, fallback to English
-    if (currentLang !== 'fr') {
-        fetch(urlFR, { method: 'HEAD' })
-            .then(response => {
-                if (!response.ok) { // If server says 404 or fails
-                    const frLink = document.getElementById("lang-link-fr");
-                    if (frLink) frLink.href = urlEN; // Quietly point to English instead
-                }
-            })
-            .catch(() => {}); // Prevents errors if testing offline/locally
-    }
+    // ==========================================================
+    // 4. AUTOMATIC SMART FALLBACK ENGINE (Link Sweeper)
+    // ==========================================================
+    // Scans every single link inside the sidebar automatically
+    const sidebarLinks = sidebarContainer.querySelectorAll("a");
+    
+    sidebarLinks.forEach(link => {
+        const targetHref = link.getAttribute("href");
 
-    // Check if the Korean page version exists on the server, fallback to English
-    if (currentLang !== 'ko') {
-        fetch(urlKO, { method: 'HEAD' })
+        // Skip external paths, contact lines, or placeholders
+        if (!targetHref || targetHref.startsWith("http") || targetHref.startsWith("mailto") || targetHref === "#") return;
+
+        // Ping the server to verify if the file actually exists
+        fetch(targetHref, { method: 'HEAD' })
             .then(response => {
                 if (!response.ok) {
-                    const koLink = document.getElementById("lang-link-ko");
-                    if (koLink) koLink.href = urlEN; // Quietly point to English instead
+                    // If the server returns a 404 error, strip the language codes back to English
+                    const fallbackHref = targetHref.replace("-fr.html", ".html").replace("-ko.html", ".html");
+                    link.href = fallbackHref;
                 }
             })
-            .catch(() => {});
-    }
+            .catch(() => {}); // Prevents local testing/offline network crash logs
+    });
     
-    // Hamburger
+    // ==========================================================
+    // 5. MOBILE HAMBURGER TOGGLE INTERACTION
+    // ==========================================================
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "mobile-nav-toggle";
-    toggleBtn.innerHTML = "☰"; // Initial hamburger icon
+    toggleBtn.innerHTML = "☰"; 
     document.body.appendChild(toggleBtn);
 
-    // Event listener to open/close the mobile menu framework smoothly
     toggleBtn.addEventListener("click", () => {
         sidebarContainer.classList.toggle("mobile-open");
         toggleBtn.classList.toggle("is-open");
 
-        // Switches the symbol between hamburger (☰) and close (✕)
         if (toggleBtn.classList.contains("is-open")) {
             toggleBtn.innerHTML = "✕";
         } else {
