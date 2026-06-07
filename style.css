@@ -274,16 +274,6 @@ body {
     opacity: 1;
 }
 
-@media (max-width: 800px) {
-    .logo-grid {
-        justify-content: center; /* Centers logos on phones */
-        gap: 30px;
-    }
-    .logo-grid img {
-        height: 35px; /* Slightly smaller on tiny screens */
-    }
-}
-
 /* ==========================================
    PAGE RESEARCH
    ========================================== */
@@ -393,7 +383,8 @@ body {
 /* ==========================================
    MOBILE RESPONSIVENESS (The Adapter)
    ========================================== */
-@media (max-width: 800px) {
+
+@media (max-width: 600px) {
     body { flex-direction: column; overflow-y: auto; }
     .sidebar { position: relative; width: 100%; height: auto; padding: 40px 30px; }
     .sidebar {position: fixed !important; top: 0; left: -280px; width: 280px; height: 100vh; z-index: 9999; 
@@ -406,6 +397,8 @@ body {
     .profile-block { flex-direction: column; gap: 20px; }
     .profile-pic {width: 110px !important;  height: 110px !important;}
     .hero-gif { height: 60vh; } /* Prevents the GIF from layout distortion on mobile */
+    .logo-grid {justify-content: center; gap: 30px; }
+    .logo-grid img { height: 35px; }
     .research-item { flex-direction: column; gap: 20px; } /* Stacks image under text on mobile */
     .research-image { width: 100%; height: 200px; }       /* Makes image full width on mobile */
     .mobile-nav-toggle {
@@ -436,7 +429,7 @@ body {
 }
 
 /* Base desktop rule to keep the toggle button completely invisible on large monitors */
-@media (min-width: 801px) {
+@media (min-width: 601px) {
     .mobile-nav-toggle {
         display: none !important;
     }
