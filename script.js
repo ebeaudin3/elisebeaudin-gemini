@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlFR = `${baseName}-fr.html`;
     const urlKO = `${baseName}-ko.html`;
 
+    // homepage
+    const urlHome = currentLang === 'en' ? 'index.html' : `index-${currentLang}.html`;
+
     // ==========================================================
     // 2. DICTIONNAIRE DE TRADUCTION DE LA SIDEBAR
     // ==========================================================
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="bio">${t.bio}</p>
 
         <ul class="nav-links">
-            <li><a href="${baseName === 'index' ? '#' : urlEN}" class="${baseName === 'index' ? 'active' : ''}">${t.home}</a></li>
+            <li><a href="${baseName === 'index' ? '#' : urlHome}" class="${baseName === 'index' ? 'active' : ''}">${t.home}</a></li>
             <li><a href="about${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'about' ? 'active' : ''}">${t.about}</a></li>
             <li><a href="research${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'research' ? 'active' : ''}">${t.research}</a></li>
             <li><a href="publications${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'publications' ? 'active' : ''}">${t.publications}</a></li>
