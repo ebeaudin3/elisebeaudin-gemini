@@ -431,12 +431,34 @@ body {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .mobile-nav-toggle.is-open {
-        left: 220px;             /* Perfectly docks inside the open menu frame */
-        background: transparent;  /* Blends smoothly into the sidebar background */
-        box-shadow: none;
+    .mobile-nav-toggle.is-open {left: 220px; background: transparent; box-shadow: none;}
+
+    .is-home-page .sidebar {
+        position: relative !important;   /* Drops it into natural layout flow at the top */
+        left: 0 !important;             /* Pulls it out of hiding */
+        width: 100% !important;          /* Spans edge-to-edge on the phone */
+        height: auto !important;         /* Packs tightly around the content */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 30px 20px 20px 20px !important;
+        background: #0a0e27 !important; /* Your signature deep navy background */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
     }
-}
+    .is-home-page .profile-container { margin-bottom: 12px !important; justify-content: center !important;  }
+    .is-home-page .profile-pic {width: 85px !important;height: 85px !important; }
+    .is-home-page .sidebar h1,
+    .is-home-page .sidebar h2 {font-size: 1.4rem !important;text-align: center !important; margin-bottom: 6px !important; letter-spacing: 1px !important; }
+    .is-home-page .sidebar p {text-align: center !important; font-size: 0.85rem !important; max-width: 480px;     margin: 0 auto 16px auto !important;opacity: 0.75;line-height: 1.4;}
+    .is-home-page .nav-links {display: flex !important;flex-direction: row !important; flex-wrap: wrap !important; justify-content: center !important;gap: 10px 18px !important; margin-bottom: 15px !important; width: 100%;}
+    .is-home-page .nav-links a {font-size: 0.8rem !important;letter-spacing: 1px !important; margin: 0 !important;}
+    .is-home-page .language-selector {margin-top: 0 !important; justify-content: center !important;  margin-bottom: 5px !important; }
+    .is-home-page .social-icons,
+    .is-home-page .copyright-text,
+    .is-home-page .mobile-nav-toggle {display: none !important;}
+    .is-home-page .content.page-layout { margin-left: 0 !important; padding: 0 !important; width: 100% !important;}
+    .is-home-page .hero-gif {width: 100% !important; height: calc(100vh - 310px) !important;  min-height: 280px;display: block !important; object-fit: cover !important; position: relative !important; top: 0;left: 0; }
+} /* @media (max-width: 1000px) */
 
 /* Base desktop rule to keep the toggle button completely invisible on large monitors */
 @media (min-width: 1001px) {
