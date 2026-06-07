@@ -85,10 +85,6 @@ body {
     width: 20px;          /* Clean, subtle icon width */
     height: 20px;         /* Clean, subtle icon height */
     object-fit: contain;
-    
-    /* Slightly dim them by default so they match your elegant sidebar text layout */
-    opacity: 0.6;         
-    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 /* Elegant light-up and lift effect when you hover over them */
