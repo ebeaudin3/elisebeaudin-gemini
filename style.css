@@ -464,10 +464,44 @@ body {
 
 /* Base desktop rule to keep the toggle button completely invisible on large monitors */
 @media (min-width: 1001px) {
-    .mobile-nav-toggle {display: none !important; }
+    /* Base desktop rule to keep the toggle button completely invisible on large monitors */
+    .mobile-nav-toggle { 
+        display: none !important; 
+    }
 
-    /*  center page content for large screen */
-    .content {display: flex !important; flex-direction: column !important; align-items: center !important; padding: 60px 40px !important;}
-    .content > * {width: 100% !important; max-width: 850px !important;  box-sizing: border-box; }
-    .is-home-page .content { padding: 0 !important; }
+    /* ==========================================================
+       1. TEXT PAGES: Centered Layout Framework (About, Research, etc.)
+       ========================================================== */
+    .content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;   /* Centers all child items dead-center on the monitor */
+        padding: 60px 40px !important;    
+        max-width: none !important;       /* CRITICAL: Breaks the 950px constraint so container spans full screen width */
+        width: calc(100% - 300px) !important;
+        box-sizing: border-box;
+    }
+
+    /* Automatically caps all text elements, profiles, and tables at a pristine reading width */
+    .content > * {
+        width: 100% !important;
+        max-width: 850px !important;  
+        box-sizing: border-box;
+    }
+
+    /* ==========================================================
+       2. HOMEPAGE OVERRIDES: Set the Wave GIF Free Edge-to-Edge
+       ========================================================== */
+    .is-home-page .content {
+        display: block !important;        /* Disables the text flex-centering system completely */
+        padding: 0 !important;            /* Vaporizes the white border margins */
+        width: calc(100% - 300px) !important;
+        height: 100vh !important;
+    }
+
+    .is-home-page .content > * {
+        max-width: none !important;       /* Shatters the 850px column limit so the GIF fills the window */
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
