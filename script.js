@@ -88,6 +88,30 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="copyright">Copyright © Tous droits réservés. 2026</div>
     `;
+
+    // Check if the French page version exists on the server, fallback to English
+    if (currentLang !== 'fr') {
+        fetch(urlFR, { method: 'HEAD' })
+            .then(response => {
+                if (!response.ok) { // If server says 404 or fails
+                    const frLink = document.getElementById("lang-link-fr");
+                    if (frLink) frLink.href = urlEN; // Quietly point to English instead
+                }
+            })
+            .catch(() => {}); // Prevents errors if testing offline/locally
+    }
+
+    // Check if the Korean page version exists on the server, fallback to English
+    if (currentLang !== 'ko') {
+        fetch(urlKO, { method: 'HEAD' })
+            .then(response => {
+                if (!response.ok) {
+                    const koLink = document.getElementById("lang-link-ko");
+                    if (koLink) koLink.href = urlEN; // Quietly point to English instead
+                }
+            })
+            .catch(() => {});
+    }
     
     // Hamburger
     const toggleBtn = document.createElement("button");
