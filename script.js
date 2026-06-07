@@ -10,11 +10,11 @@ fetch('sidebar.html')
         sidebar.innerHTML = data;
 
         // 1. GESTION AUTOMATIQUE DES LIENS DE LANGUES (SMART ROUTING)
-        // Récupère le nom du fichier actuel (ex: "research_fr.html" ou "index.html")
+        // Récupère le nom du fichier actuel (ex: "research-fr.html" ou "index.html")
         let currentFile = window.location.pathname.split("/").pop() || "index.html";
         
         // Trouve la racine du fichier sans l'extension ni le suffixe de langue
-        let baseName = currentFile.replace(".html", "").replace("_fr", "").replace("_ko", "");
+        let baseName = currentFile.replace(".html", "").replace("-fr", "").replace("-ko", "");
         if (baseName === "") baseName = "index";
 
         // Assigne dynamiquement les bons liens de redirection de page
@@ -23,12 +23,12 @@ fetch('sidebar.html')
         const koLink = document.getElementById('lang-ko');
 
         if (enLink) enLink.href = `${baseName}.html`;
-        if (frLink) frLink.href = `${baseName}_fr.html`;
-        if (koLink) koLink.href = `${baseName}_ko.html`; // Pour plus tard si besoin
+        if (frLink) frLink.href = `${baseName}-fr.html`;
+        if (koLink) koLink.href = `${baseName}-ko.html`; // Pour plus tard si besoin
 
         // Ajoute la classe 'active' sur la langue en cours d'utilisation
-        if (currentFile.includes('_fr') && frLink) frLink.classList.add('active-lang');
-        else if (currentFile.includes('_ko') && koLink) koLink.classList.add('active-lang');
+        if (currentFile.includes('-fr') && frLink) frLink.classList.add('active-lang');
+        else if (currentFile.includes('-ko') && koLink) koLink.classList.add('active-lang');
         else if (enLink) enLink.classList.add('active-lang');
        
         // 1. Automatically create the mobile toggle button
