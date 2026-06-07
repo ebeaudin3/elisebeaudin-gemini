@@ -400,7 +400,8 @@ body {
     .logo-grid {justify-content: center; gap: 30px; }
     .logo-grid img { height: 35px; }
     .research-item { flex-direction: column; gap: 20px; } /* Stacks image under text on mobile */
-    .research-image { width: 100%; height: 200px; }       /* Makes image full width on mobile */
+    .research-image { width: 100% !important; height: 350px !important; }       /* Makes image full width on mobile */
+    .research-image img {object-fit: cover; object-position: center;}
     .mobile-nav-toggle {
         display: block !important; /* Shows up ONLY on mobile screens */
         position: fixed;
