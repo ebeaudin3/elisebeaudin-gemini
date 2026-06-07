@@ -26,19 +26,22 @@ body {
     flex-direction: column;
     justify-content: space-between;
     z-index: 100;
+    box-sizing: border-box;
 }
 
 .profile-container {
-    margin-bottom: 25px;   /* Generous space between your photo and your name */
-    display: block;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .profile-pic {
-    width: 110px;          /* Perfect, elegant size for the sidebar width */
-    height: 110px;         /* Must match the width for a perfect circle */
+    width: 140px;          /* Perfect, elegant size for the sidebar width */
+    height: 140px;         /* Must match the width for a perfect circle */
     border-radius: 50%;    /* This creates the clean circular crop */
     object-fit: cover;     /* CRITICAL: Prevents your face from stretching if the photo isn't a perfect square */
-    border: 2px solid rgba(255, 255, 255, 0.15); /* Adds a sophisticated, subtle frame against the navy background */
+    border: 2px solid rgba(255, 255, 255, 1); /* Adds a sophisticated, subtle frame against the navy background */
 }
 
 .sidebar h1 {
@@ -84,9 +87,12 @@ body {
 
 .social-icons {
     display: flex;
-    gap: 20px;            /* Perfect spacing between the two icons */
-    margin-top: 25px;     /* Pushes them cleanly away from the language links above */
+    gap: 18px;            /* spacing between the two icons */
     align-items: center;
+    position: static !important;
+    padding-top: 30px;
+    margin-top: auto !important;
+    margin-bottom: 15px !important;
 }
 
 .social-icons a {
@@ -100,10 +106,26 @@ body {
     object-fit: contain;
 }
 
-/* Elegant light-up and lift effect when you hover over them */
 .social-icons a:hover img {
     opacity: 1;
     transform: translateY(-2px); /* Tiny, premium feeling 3D bounce */
+}
+
+.social-icons + * {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 15px !important;
+    font-size: 0.85rem;
+}
+
+/* Copyright text spacing */
+.social-icons + * + * {
+    display: block;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    opacity: 0.35;
+    padding-bottom: 5px; /* Keeps it slightly elevated from the absolute edge */
 }
 
 .copyright { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
