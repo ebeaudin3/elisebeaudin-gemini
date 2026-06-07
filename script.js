@@ -8,7 +8,29 @@ fetch('sidebar.html')
         if (!sidebar) return; // Safety catch if the element isn't on the page
         
         sidebar.innerHTML = data;
+
+        // 1. GESTION AUTOMATIQUE DES LIENS DE LANGUES (SMART ROUTING)
+        // Récupère le nom du fichier actuel (ex: "research_fr.html" ou "index.html")
+        let currentFile = window.location.pathname.split("/").pop() || "index.html";
         
+        // Trouve la racine du fichier sans l'extension ni le suffixe de langue
+        let baseName = currentFile.replace(".html", "").replace("_fr", "").replace("_ko", "");
+        if (baseName === "") baseName = "index";
+
+        // Assigne dynamiquement les bons liens de redirection de page
+        const enLink = document.getElementById('lang-en');
+        const frLink = document.getElementById('lang-fr');
+        const koLink = document.getElementById('lang-ko');
+
+        if (enLink) enLink.href = `${baseName}.html`;
+        if (frLink) frLink.href = `${baseName}_fr.html`;
+        if (koLink) koLink.href = `${baseName}_ko.html`; // Pour plus tard si besoin
+
+        // Ajoute la classe 'active' sur la langue en cours d'utilisation
+        if (currentFile.includes('_fr') && frLink) frLink.classList.add('active-lang');
+        else if (currentFile.includes('_ko') && koLink) koLink.classList.add('active-lang');
+        else if (enLink) enLink.classList.add('active-lang');
+       
         // 1. Automatically create the mobile toggle button
         const toggleBtn = document.createElement('button');
         toggleBtn.className = 'mobile-nav-toggle';
