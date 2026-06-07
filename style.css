@@ -407,7 +407,7 @@ body {
     .profile-pic {width: 150px !important;  height: 150px !important;}
     .hero-gif { width: 100vw !important; height: 100vh !important; object-fit: cover !important; position: fixed; top: 0; left: 0;} /* Prevents the GIF from layout distortion on mobile */
     .logo-grid {justify-content: center; gap: 30px; }
-    .logo-grid img { height: 35px; }
+    .logo-grid img { height: 70px; }
     .research-item { flex-direction: column; gap: 20px; } /* Stacks image under text on mobile */
     .research-image { width: 100% !important; height: 350px !important; }       /* Makes image full width on mobile */
     .research-image img {object-fit: cover; object-position: center;}
