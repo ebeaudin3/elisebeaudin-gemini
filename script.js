@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
             home: "HOME",
             about: "ABOUT ME",
             research: "RESEARCH",
-            publications: "PUBLICATIONS"
+            publications: "PUBLICATIONS",
+            sidequests: "SIDEQUESTS"
         },
         fr: {
             bio: "Bienvenue ! Je suis océanographe physicienne et vulgarisatrice scientifique. J'occupe présentement le poste de Spécialiste en acoustique marine à Ocean Networks Canada, à Victoria, BC, Canada.",
