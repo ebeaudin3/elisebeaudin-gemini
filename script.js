@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><a href="about${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'about' ? 'active' : ''}">${t.about}</a></li>
             <li><a href="research${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'research' ? 'active' : ''}">${t.research}</a></li>
             <li><a href="publications${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'publications' ? 'active' : ''}">${t.publications}</a></li>
-            <li><a href="sidequests{currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'sidequests' ? 'active' : ''}">${t.sidequests}</a></li>
+            <li><a href="sidequests${currentLang === 'en' ? '' : '-' + currentLang}.html" class="${baseName === 'sidequests' ? 'active' : ''}">${t.sidequests}</a></li>
         </ul>
 
         <div class="social-icons">
