@@ -1,16 +1,163 @@
-<main class="content p-50">
-    <h2 class="section-title">Side Quests</h2>
-    <div class="quests-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Quests | Élise Beaudin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .page-subtitle {
+            color: #8b949e;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .quest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .quest-card {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .quest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: #30363d;
+        }
+        .card-thumbnail {
+            position: relative;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-color: #161b22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(4px);
+            color: #c9d1d9;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 15, 30, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .play-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0d1117;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding-left: 3px; /* visual center balance */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+        .quest-card:hover .card-overlay {
+            opacity: 1;
+        }
+        .quest-card:hover .play-btn {
+            transform: scale(1.1);
+        }
+        .card-info {
+            padding: 24px;
+        }
+        .card-info h3 {
+            margin: 0 0 8px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #f0f6fc;
+        }
+        .card-info p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #8b949e;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar" id="custom-sidebar"></nav>
+
+    <main class="content page-layout">
         
-        <div class="quest-item">
-            <img src="images/music.jpg" alt="Music">
-            <h3>My Music</h3>
-        </div>
+        <h1 class="page-title">Side Quests</h1>
+        <p class="page-subtitle">A collection of creative expeditions in filmmaking, sound, and story.</p>
 
-        <div class="quest-item">
-            <img src="images/shorts.jpg" alt="DEEPS Shorts">
-            <h3>Brown DEEPS Shorts</h3>
-        </div>
+        <div class="quest-grid">
+            
+            <div class="quest-card">
+                <div class="card-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1492446845049-9c50cc313f00?auto=format&fit=crop&w=600&q=80');">
+                    <span class="category-badge">FILM</span>
+                    <div class="card-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Short Documentaries</h3>
+                    <p>Visual storytelling focusing on environmental narratives, human conditions, and quiet spaces.</p>
+                </div>
+            </div>
+
+            <div class="quest-card">
+                <div class="card-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80');">
+                    <span class="category-badge">MUSIC</span>
+                    <div class="card-overlay">
+                        <div class="play-btn">🎵</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Sonic Landscapes</h3>
+                    <p>Original tracks, ambient arrangements, and creative instrumentation experiments.</p>
+                </div>
+            </div>
+
+            <div class="quest-card">
+                <div class="card-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80');">
+                    <span class="category-badge">WRITING</span>
+                    <div class="card-overlay">
+                        <div class="play-btn">📖</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Literary Prose</h3>
+                    <p>A narrative piece detailing an immersive fictional story outside the world of science logs.</p>
+                </div>
+            </div>
 
         </div>
-</main>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
